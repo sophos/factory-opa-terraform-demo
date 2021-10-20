@@ -12,12 +12,12 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
 * A Refactr Platform account 
 * An AWS user with 
     * An Access Key 
-    * Permission to do a plan based on the Terraform configuration in GitHub
+    * Permission to do a plan based on the Terraform configuration in this repo
 
 ## Instructions
 * In AWS
     * If you don't already have one, create an IAM user with programmatic access and have the access key id and secret access key available for later
-    * Assign the user the appropriate permissions to deploy the Terraform configuration
+    * Assign the user the appropriate permissions to deploy the Terraform configuration in this repo
         * (you do not need to deploy any resources to AWS in order to prove the workflow was successful)
 * In the Refactr Platform
     * Create a new Job using the following settings:
