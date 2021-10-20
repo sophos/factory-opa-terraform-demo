@@ -16,7 +16,7 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
 
 ## Instructions
 * In AWS
-    * If you don't already have one, create an IAM user with programatic access and have the access key id and secret access key available for later
+    * If you don't already have one, create an IAM user with programmatic access and have the access key id and secret access key available for later
     * Assign the user the appropriate permissions to deploy the Terraform configuration
         * (you do not need to deploy any resources to AWS in order to prove the workflow was successful)
 * In the Refactr Platform
