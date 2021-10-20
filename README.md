@@ -1,6 +1,8 @@
 # Description
 This repo contains files in support of an integration between the Refactr Platform, Open Policy Agent, and Terraform Cloud. The goal is to insert an ```opa eval``` scan into a Terraform Cloud workflow by leveraging Terraform Cloud's new **Event Hook** feature to trigger a Refactr pipeline via WebHook.
+
 The basic flow looks like this:
+
 Terraform Plan ➡ Event Hook ➡ Refactr WebHook ➡ Refactr OPA Pipeline ➡ Back to Event Hook ➡ Deploy
 
 The inspiration for this example comes from the [Open Policy Agent | Terraform](https://www.openpolicyagent.org/docs/latest/terraform/) use case. The files listed in the instructions above have been added to this repo.
@@ -41,13 +43,14 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
     * Start a new plan to confirm everything works (YourWorkspace ➡ Actions ➡ Start a new plan)
         * Enter a reason for the new plan
         * Click **Start plan**
-        * If you see a green check mark and **Tasks Passed** then you have successfully completed this integration!
+            * If you see a green check mark and **Tasks Passed** then you have successfully completed this integration!
+            * Feel free to cancel the plan
 
 ## Resources
-[Create a Terraform Cloud account](https://app.terraform.io/signup/account)
-[Refactr Community Edition](https://www.refactr.it/community-edition)
-[Create AWS Account](https://aws.amazon.com/resources/create-account/)
-[Refactr Webhook Job Trigger](https://docs.refactr.it/docs/running-pipelines/#incoming-webhook-job-trigger)
-[Open Policy Agent | Terraform](https://www.openpolicyagent.org/docs/latest/terraform/)
-[Run Tasks](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html)
-[Run Tasks API](https://www.terraform.io/docs/cloud/api/run-tasks.html)
+* [Create a Terraform Cloud account](https://app.terraform.io/signup/account)
+* [Refactr Community Edition](https://www.refactr.it/community-edition)
+* [Create AWS Account](https://aws.amazon.com/resources/create-account/)
+* [Refactr Webhook Job Trigger](https://docs.refactr.it/docs/running-pipelines/#incoming-webhook-job-trigger)
+* [Open Policy Agent | Terraform](https://www.openpolicyagent.org/docs/latest/terraform/)
+* [Run Tasks](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html)
+* [Run Tasks API](https://www.terraform.io/docs/cloud/api/run-tasks.html)
