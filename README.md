@@ -24,9 +24,9 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
         * Trigger: **Incoming WebHook**
         * Variables Transform: ```{"data": body | dump}```
         * Pipeline: *choose one of the following example pipelines*
-            * **OPA Eval Terraform**
-            * **Checkov Terraform**
-            * **Terrascan**
+            * **Terraform Cloud Event Hook | OPA Eval**
+            * **Terraform Cloud Event Hook | Terrascan**
+            * **Terraform Cloud Event Hook | Checkov**
         * Revision: **latest**
     * Copy the WebHook URL for use later
 * In Terraform Cloud
