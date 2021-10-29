@@ -1,9 +1,9 @@
 # Description
-This repo contains files in support of an integration between the Refactr Platform, Open Policy Agent, and Terraform Cloud. The goal is to insert an ```opa eval``` scan into a Terraform Cloud workflow by leveraging Terraform Cloud's new **Event Hook** feature to trigger a Refactr pipeline via WebHook.
+This repo contains files in support of an integration between the Refactr Platform and Terraform Cloud. The goal is to insert an intermediary step in the Terraform Cloud workflow by way of a Refactr Pipeline that can execute any number of tasks, such as an ```opa eval``` scan, Terrascan, or Checkov scan using Terraform Cloud's new **Event Hook** feature to trigger a Refactr pipeline via WebHook.
 
 The basic flow looks like this:
 
-Terraform Plan ➡ Event Hook ➡ Refactr WebHook ➡ Refactr OPA Pipeline ➡ Back to Event Hook ➡ Deploy
+Terraform Plan ➡ Event Hook ➡ Refactr WebHook ➡ Refactr Pipeline ➡ Back to Event Hook ➡ Deploy
 
 The inspiration for this example comes from the [Open Policy Agent | Terraform](https://www.openpolicyagent.org/docs/latest/terraform/) use case. The files listed in the instructions above have been added to this repo.
 
@@ -23,7 +23,10 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
     * Create a new Job using the following settings:
         * Trigger: **Incoming WebHook**
         * Variables Transform: ```{"data": body | dump}```
-        * Pipeline: **OPA Eval**
+        * Pipeline: *choose one of the following example pipelines*
+            * **OPA Eval Terraform**
+            * **Checkov Terraform**
+            * **Terrascan**
         * Revision: **latest**
     * Copy the WebHook URL for use later
 * In Terraform Cloud
