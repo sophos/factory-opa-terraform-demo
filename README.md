@@ -1,15 +1,15 @@
 # Description
-This repo contains files in support of an integration between the Refactr Platform and Terraform Cloud. The goal is to insert an intermediary step in the Terraform Cloud workflow by way of a Refactr Pipeline that can execute any number of tasks, such as an ```opa eval``` scan, Terrascan, or Checkov scan using Terraform Cloud's new **Event Hook** feature to trigger a Refactr pipeline via WebHook.
+This repo contains files in support of an integration between Sophos Factory and Terraform Cloud. The goal is to insert an intermediary step in the Terraform Cloud workflow by way of a Sophos Factory pipeline that can execute any number of tasks, such as an ```opa eval``` scan, Terrascan, or Checkov scan using Terraform Cloud's **Event Hook** feature to trigger a Sophos Factory pipeline via WebHook.
 
 The basic flow looks like this:
 
-Terraform Plan ➡ Event Hook ➡ Refactr WebHook ➡ Refactr Pipeline ➡ Back to Event Hook ➡ Deploy
+Terraform Plan ➡ Event Hook ➡ Sophos Factory WebHook ➡ Sophos Factory Pipeline ➡ Back to Event Hook ➡ Deploy
 
 The inspiration for this example comes from the [Open Policy Agent | Terraform](https://www.openpolicyagent.org/docs/latest/terraform/) use case. The files listed in the instructions above have been added to this repo.
 
 ## Requirements
 * A Terraform Cloud account 
-* A Refactr Platform account 
+* A Sophos Factory account 
 * An AWS user with 
     * An Access Key 
     * Permission to do a plan based on the Terraform configuration in this repo
@@ -19,7 +19,7 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
     * If you don't already have one, create an IAM user with programmatic access and have the access key id and secret access key available for later
     * Assign the user the appropriate permissions to deploy the Terraform configuration in this repo
         * (you do not need to deploy any resources to AWS in order to prove the workflow was successful)
-* In the Refactr Platform
+* In Sophos Factory
     * Create a new Job using the following settings:
         * Trigger: **Incoming WebHook**
         * Variables Transform: ```{"data": body | dump}```
@@ -32,7 +32,7 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
 * In Terraform Cloud
     * Create a new Event Hook (YourOrg ➡ Settings ➡ Task event hooks ➡ Create event hook)
         * Name: *Choose a descriptive name*
-        * Hook endpoint URL: *Paste in the WebHook URL from the Refactr job*
+        * Hook endpoint URL: *Paste in the WebHook URL from the Sophos Factory job*
     * Create a new workspace in Terraform Cloud using the following settings:
         * Version Control Workflow
             * Provider: **GitHub**
@@ -51,9 +51,9 @@ The inspiration for this example comes from the [Open Policy Agent | Terraform](
 
 ## Resources
 * [Create a Terraform Cloud account](https://app.terraform.io/signup/account)
-* [Refactr Community Edition](https://www.refactr.it/community-edition)
+* [Sophos Factory Community Edition](https://www.refactr.it/community-edition)
 * [Create AWS Account](https://aws.amazon.com/resources/create-account/)
-* [Refactr Webhook Job Trigger](https://docs.refactr.it/docs/running-pipelines/#incoming-webhook-job-trigger)
+* [Sophos Factory Webhook Job Trigger](https://docs.refactr.it/docs/running-pipelines/#incoming-webhook-job-trigger)
 * [Open Policy Agent | Terraform](https://www.openpolicyagent.org/docs/latest/terraform/)
 * [Run Tasks](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html)
 * [Run Tasks API](https://www.terraform.io/docs/cloud/api/run-tasks.html)
